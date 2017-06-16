@@ -28,7 +28,9 @@ void cpu_init_f (volatile immap_t * immr)
 
 	/* SYPCR - contains watchdog control (11-9) */
 
+#ifndef CONFIG_TARGET_MCR3000
 	immr->im_siu_conf.sc_sypcr = CONFIG_SYS_SYPCR;
+#endif
 
 #if defined(CONFIG_WATCHDOG)
 	reset_8xx_watchdog (immr);
