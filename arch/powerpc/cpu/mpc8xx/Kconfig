@@ -8,6 +8,11 @@ choice
 	prompt "Target select"
 	optional
 
+config TARGET_MCR3000
+	bool "Support MCR3000 board from CSSI"
+
 endchoice
+
+source "board/cssi/MCR3000/Kconfig"
 
 endmenu

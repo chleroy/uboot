@@ -443,6 +443,26 @@ static void fec_pin_init(int fecidx)
 			immr->im_ioport.iop_pddir = 0x1c58;	/* Pre rev. D */
 		else
 			immr->im_ioport.iop_pddir = 0x1fff;	/* Rev. D and later */
+
+#if defined (CONFIG_TARGET_MCR3000)
+		immr->im_ioport.iop_papar = 0xBBFF;
+		immr->im_ioport.iop_padir = 0x04F0;
+		immr->im_ioport.iop_paodr = 0x0000;
+
+		immr->im_cpm.cp_pbpar = 0x000133FF;
+		immr->im_cpm.cp_pbdir = 0x0003BF0F;
+		immr->im_cpm.cp_pbodr = 0x00000000;
+
+		immr->im_ioport.iop_pcpar = 0x0400;
+		immr->im_ioport.iop_pcdir = 0x0080;
+		immr->im_ioport.iop_pcso  = 0x0D53;
+		immr->im_ioport.iop_pcint = 0x0000;
+
+		immr->im_ioport.iop_pdpar = 0x03FE;
+		immr->im_ioport.iop_pddir = 0x1C09;
+
+		immr->im_ioport.utmode |= 0x80;
+#endif
 #endif
 
 #endif	/* CONFIG_ETHER_ON_FEC1 */
