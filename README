@@ -908,8 +908,8 @@ The following options need to be configured:
 	Note:	Don't enable the "icache" and "dcache" commands
 		(configuration option CONFIG_CMD_CACHE) unless you know
 		what you (and your U-Boot users) are doing. Data
-		cache cannot be enabled on systems like the 8xx or
-		8260 (where accesses to the IMMR region must be
+		cache cannot be enabled on systems like the 8xx
+		(where accesses to the IMMR region must be
 		uncached), and it cannot be disabled on all other
 		systems where we (mis-) use the data cache to hold an
 		initial stack and some data.
@@ -4005,7 +4005,7 @@ Low Level (hardware related) configuration options:
 
 - CONFIG_SYS_IMMR:	Physical address of the Internal Memory.
 		DO NOT CHANGE unless you know exactly what you're
-		doing! (11-4) [MPC8xx/82xx systems only]
+		doing! (11-4) [MPC8xx systems only]
 
 - CONFIG_SYS_INIT_RAM_ADDR:
 
