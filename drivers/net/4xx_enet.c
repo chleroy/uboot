@@ -67,6 +67,7 @@
 #include <asm/io.h>
 #include <asm/cache.h>
 #include <asm/mmu.h>
+#include <commproc.h>
 #include <asm/ppc4xx.h>
 #include <asm/ppc4xx-emac.h>
 #include <asm/ppc4xx-mal.h>

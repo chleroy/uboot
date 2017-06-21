@@ -38,6 +38,7 @@ obj-$(CONFIG_RTC_MC146818) += mc146818.o
 obj-$(CONFIG_RTC_MCP79411) += ds1307.o
 obj-$(CONFIG_MCFRTC) += mcfrtc.o
 obj-$(CONFIG_RTC_MK48T59) += mk48t59.o
+obj-$(CONFIG_RTC_MPC8xx) += mpc8xx.o
 obj-$(CONFIG_RTC_MV) += mvrtc.o
 obj-$(CONFIG_RTC_MX27) += mx27rtc.o
 obj-$(CONFIG_RTC_MXS) += mxsrtc.o

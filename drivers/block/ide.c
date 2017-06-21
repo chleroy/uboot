@@ -770,6 +770,10 @@ void ide_init(void)
 	unsigned char c;
 	int i, bus;
 
+#ifdef CONFIG_IDE_8xx_PCCARD
+	extern int ide_devices_found;	/* Initialized in check_ide_device() */
+#endif /* CONFIG_IDE_8xx_PCCARD */
+
 #ifdef CONFIG_IDE_PREINIT
 	WATCHDOG_RESET();
 
@@ -808,6 +812,13 @@ void ide_init(void)
 			bus * (CONFIG_SYS_IDE_MAXDEVICE /
 			       CONFIG_SYS_IDE_MAXBUS);
 
+#ifdef CONFIG_IDE_8xx_PCCARD
+		/* Skip non-ide devices from probing */
+		if ((ide_devices_found & (1 << bus)) == 0) {
+			ide_led((LED_IDE1 | LED_IDE2), 0);	/* LED's off */
+			continue;
+		}
+#endif
 		printf("Bus %d: ", bus);
 
 		ide_bus_ok[bus] = 0;

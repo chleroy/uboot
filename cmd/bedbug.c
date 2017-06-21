@@ -52,6 +52,10 @@ void bedbug_init (void)
 	void bedbug405_init (void);
 
 	bedbug405_init ();
+#elif defined(CONFIG_8xx)
+	void bedbug860_init (void);
+
+	bedbug860_init ();
 #endif
 
 	return;
