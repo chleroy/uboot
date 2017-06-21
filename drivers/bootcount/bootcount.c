@@ -14,6 +14,11 @@
  */
 #if !defined(CONFIG_SYS_BOOTCOUNT_ADDR)
 
+#if defined(CONFIG_8xx)
+#define CONFIG_SYS_BOOTCOUNT_ADDR (((immap_t *)CONFIG_SYS_IMMR)->im_cpm.cp_dpmem + \
+				CPM_BOOTCOUNT_ADDR)
+#endif /* defined(CONFIG_8xx) */
+
 #if defined(CONFIG_QE)
 #include <linux/immap_qe.h>
 #define CONFIG_SYS_BOOTCOUNT_ADDR	(CONFIG_SYS_IMMR + 0x110000 + \

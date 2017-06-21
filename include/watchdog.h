@@ -72,6 +72,11 @@ int init_func_watchdog_reset(void);
  * Prototypes from $(CPU)/cpu.c.
  */
 
+/* MPC 8xx */
+#if (defined(CONFIG_8xx) || defined(CONFIG_MPC860)) && !defined(__ASSEMBLY__)
+	void reset_8xx_watchdog(volatile immap_t *immr);
+#endif
+
 /* AMCC 4xx */
 #if defined(CONFIG_4xx) && !defined(__ASSEMBLY__)
 	void reset_4xx_watchdog(void);

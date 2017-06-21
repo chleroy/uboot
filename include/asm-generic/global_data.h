@@ -10,7 +10,7 @@
 #define __ASM_GENERIC_GBL_DATA_H
 /*
  * The following data structure is placed in some memory which is
- * available very early after boot (like DPRAM on MPC8xx/MPC82xx, or
+ * available very early after boot (like DPRAM on MPC8xx, or
  * some locked parts of the data cache) to allow for a minimum set of
  * global variables during system initialization (until we have set
  * up the memory controller so that we can use RAM).

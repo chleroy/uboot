@@ -90,7 +90,12 @@
 DECLARE_GLOBAL_DATA_PTR;
 
 #ifndef	I2C_SOFT_DECLARATIONS
+# if defined(CONFIG_8xx)
+#  define I2C_SOFT_DECLARATIONS	volatile immap_t *immr = \
+		(immap_t *)CONFIG_SYS_IMMR;
+# else
 #  define I2C_SOFT_DECLARATIONS
+# endif
 #endif
 
 #if !defined(CONFIG_SYS_I2C_SOFT_SPEED)

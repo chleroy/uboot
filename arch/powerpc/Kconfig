@@ -29,6 +29,9 @@ config MPC86xx
 	select SYS_FSL_DDR
 	select SYS_FSL_DDR_BE
 
+config 8xx
+	bool "MPC8xx"
+
 config 4xx
 	bool "PPC4xx"
 	select CREATE_ARCH_SYMLINK
@@ -39,6 +42,7 @@ endchoice
 source "arch/powerpc/cpu/mpc83xx/Kconfig"
 source "arch/powerpc/cpu/mpc85xx/Kconfig"
 source "arch/powerpc/cpu/mpc86xx/Kconfig"
+source "arch/powerpc/cpu/mpc8xx/Kconfig"
 source "arch/powerpc/cpu/ppc4xx/Kconfig"
 
 endmenu
