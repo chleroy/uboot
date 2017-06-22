@@ -51,6 +51,14 @@ void cpu_init_f(immap_t __iomem *immr)
 	clrsetbits_be32(&immr->im_clkrst.car_sccr, ~SCCR_MASK,
 			CONFIG_SYS_SCCR);
 
+	/* BUG MPC866 GLL2 consideration */
+	reg = in_be32(&immr->im_clkrst.car_sccr);
+	/* probably we use the mode 1:2:1 */
+	if ((reg & 0x00060000) == 0x00020000) {
+		clrbits_be32(&immr->im_clkrst.car_sccr, 0x00060000);
+		setbits_be32(&immr->im_clkrst.car_sccr, 0x00020000);
+	}
+
 	/* PLL (CPU clock) settings (15-30) */
 
 	out_be32(&immr->im_clkrstk.cark_plprcrk, KAPWR_KEY);
