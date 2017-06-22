@@ -720,15 +720,8 @@ static void fec_halt(struct eth_device* dev)
 
 /* PHY identification
  */
-#define PHY_ID_LXT970		0x78100000	/* LXT970 */
-#define PHY_ID_LXT971		0x001378e0	/* LXT971 and 972 */
-#define PHY_ID_82555		0x02a80150	/* Intel 82555 */
-#define PHY_ID_QS6612		0x01814400	/* QS6612 */
-#define PHY_ID_AMD79C784	0x00225610	/* AMD 79C784 */
-#define PHY_ID_LSI80225		0x0016f870	/* LSI 80225 */
-#define PHY_ID_LSI80225B	0x0016f880	/* LSI 80225/B */
-#define PHY_ID_DM9161		0x0181B880	/* Davicom DM9161 */
-#define PHY_ID_KSM8995M		0x00221450	/* MICREL KS8995MA */
+#define PHY_ID_LXT973		0x00137A10	/* LXT973 */
+#define PHY_ID_KSZ8041NL	0x00221512	/* MICREL KSZ8041NL */
 
 /* send command to phy using mii, wait for result */
 static uint
@@ -792,29 +785,11 @@ static int mii_discover_phy(struct eth_device *dev)
 #ifdef ET_DEBUG
 				printf("PHY @ 0x%x pass %d type ",phyno,pass);
 				switch (phytype & 0xfffffff0) {
-				case PHY_ID_LXT970:
-					printf("LXT970\n");
+				case PHY_ID_LXT973:
+					printf("LXT973\n");
 					break;
-				case PHY_ID_LXT971:
-					printf("LXT971\n");
-					break;
-				case PHY_ID_82555:
-					printf("82555\n");
-					break;
-				case PHY_ID_QS6612:
-					printf("QS6612\n");
-					break;
-				case PHY_ID_AMD79C784:
-					printf("AMD79C784\n");
-					break;
-				case PHY_ID_LSI80225B:
-					printf("LSI L80225/B\n");
-					break;
-				case PHY_ID_DM9161:
-					printf("Davicom DM9161\n");
-					break;
-				case PHY_ID_KSM8995M:
-					printf("MICREL KS8995M\n");
+				case PHY_ID_KSZ8041NL:
+					printf("KSZ8041NL\n");
 					break;
 				default:
 					printf("0x%08x\n", phytype);
