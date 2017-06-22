@@ -738,6 +738,7 @@ static void fec_halt(struct eth_device* dev)
  */
 #define PHY_ID_LXT970		0x78100000	/* LXT970 */
 #define PHY_ID_LXT971		0x001378e0	/* LXT971 and 972 */
+#define PHY_ID_LXT973		0x00137A10	/* LXT973 */
 #define PHY_ID_82555		0x02a80150	/* Intel 82555 */
 #define PHY_ID_QS6612		0x01814400	/* QS6612 */
 #define PHY_ID_AMD79C784	0x00225610	/* AMD 79C784 */
@@ -813,6 +814,9 @@ static int mii_discover_phy(struct eth_device *dev)
 					break;
 				case PHY_ID_LXT971:
 					printf("LXT971\n");
+					break;
+				case PHY_ID_LXT973:
+					printf("LXT973\n");
 					break;
 				case PHY_ID_82555:
 					printf("82555\n");
