@@ -55,6 +55,16 @@ void cpu_init_f (volatile immap_t * immr)
 	reg |= CONFIG_SYS_SCCR;
 	immr->im_clkrst.car_sccr = reg;
 
+	/* BUG MPC866 GLL2 consideration */
+	reg = immr->im_clkrst.car_sccr;
+	/* probably we use the mode 1:2:1 */
+	if ((reg & 0x00060000) == 0x00020000) {
+		reg &= ~0x00060000;
+		immr->im_clkrst.car_sccr = reg;
+		reg |= 0x00020000;
+		immr->im_clkrst.car_sccr = reg;
+	}
+
 	/* PLL (CPU clock) settings (15-30) */
 
 	immr->im_clkrstk.cark_plprcrk = KAPWR_KEY;
