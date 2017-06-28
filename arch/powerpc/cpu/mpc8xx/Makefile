@@ -16,5 +16,4 @@ obj-y	+= interrupts.o
 obj-$(CONFIG_CMD_REGINFO) += reginfo.o
 obj-y	+= serial.o
 obj-y	+= speed.o
-obj-y	+= spi.o
 obj-y	+= plprcr_write.o

@@ -25,8 +25,6 @@
 #include <post.h>
 #include <serial.h>
 
-#ifdef CONFIG_SPI
-
 /* Warning:
  * You cannot enable DEBUG for early system initalization, i. e. when
  * this driver is used to read environment parameters like "baudrate"
@@ -421,4 +419,3 @@ ssize_t spi_xfer (size_t count)
 
 	return count;
 }
-#endif	/* CONFIG_SPI */
