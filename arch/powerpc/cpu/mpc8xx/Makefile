@@ -11,7 +11,6 @@ extra-y += start.o
 extra-y += traps.o
 obj-y	+= cpu.o
 obj-y	+= cpu_init.o
-obj-y	+= fec.o
 obj-$(CONFIG_OF_LIBFDT) += fdt.o
 obj-y	+= interrupts.o
 obj-$(CONFIG_CMD_REGINFO) += reginfo.o

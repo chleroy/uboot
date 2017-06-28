@@ -347,7 +347,7 @@ void reset_8xx_watchdog (volatile immap_t * immr)
  */
 int cpu_eth_init(bd_t *bis)
 {
-#if defined(FEC_ENET)
+#if defined(CONFIG_MPC8XX_FEC)
 	fec_initialize(bis);
 #endif
 	return 0;
