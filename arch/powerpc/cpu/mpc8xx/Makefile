@@ -14,6 +14,5 @@ obj-y	+= cpu_init.o
 obj-$(CONFIG_OF_LIBFDT) += fdt.o
 obj-y	+= interrupts.o
 obj-$(CONFIG_CMD_REGINFO) += reginfo.o
-obj-y	+= serial.o
 obj-y	+= speed.o
 obj-y	+= plprcr_write.o

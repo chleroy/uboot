@@ -14,8 +14,6 @@
 
 DECLARE_GLOBAL_DATA_PTR;
 
-#if !defined(CONFIG_8xx_CONS_NONE)	/* No Console at all */
-
 #if defined(CONFIG_8xx_CONS_SMC1)	/* Console on SMC1 */
 #define	SMC_INDEX	0
 #define PROFF_SMC	PROFF_SMC1
@@ -50,15 +48,6 @@ DECLARE_GLOBAL_DATA_PTR;
 
 #endif /* CONFIG_8xx_CONS_SCCx */
 
-#if !defined(CONFIG_SYS_SMC_RXBUFLEN)
-#define CONFIG_SYS_SMC_RXBUFLEN	1
-#define CONFIG_SYS_MAXIDLE	0
-#else
-#if !defined(CONFIG_SYS_MAXIDLE)
-#error "you must define CONFIG_SYS_MAXIDLE"
-#endif
-#endif
-
 typedef volatile struct serialbuffer {
 	cbd_t	rxbd;		/* Rx BD */
 	cbd_t	txbd;		/* Tx BD */
@@ -76,9 +65,7 @@ static void serial_setdivisor(volatile cpm8xx_t *cp)
 		divisor=(50*1000*1000 + 8*9600)/16/9600;
 	}
 
-#ifdef CONFIG_SYS_BRGCLK_PRESCALE
 	divisor /= CONFIG_SYS_BRGCLK_PRESCALE;
-#endif
 
 	if(divisor<=0x1000) {
 		cp->cp_brgc1=((divisor-1)<<1) | CPM_BRG_EN;
@@ -560,5 +547,3 @@ void mpc8xx_serial_initialize(void)
 	serial_register(&serial_scc_device);
 #endif
 }
-
-#endif	/* CONFIG_8xx_CONS_NONE */
