@@ -51,7 +51,7 @@ void cpu_init_f (volatile immap_t * immr)
 
 	immr->im_clkrstk.cark_sccrk = KAPWR_KEY;
 	reg = immr->im_clkrst.car_sccr;
-	reg &= SCCR_MASK;
+	reg &= CONFIG_SYS_SCCR_MASK;
 	reg |= CONFIG_SYS_SCCR;
 	immr->im_clkrst.car_sccr = reg;
 

@@ -1,5 +1,6 @@
 config CMD_IMMAP
 	bool "Enable various commands to dump IMMR information"
+	depends on 8xx
 	help
 	  This enables various commands such as:
 
