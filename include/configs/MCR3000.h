@@ -10,6 +10,7 @@
 
 /* High Level Configuration Options */
 #define CONFIG_BOARD_EARLY_INIT_F	1	/* Call board_early_init_f */
+#define CONFIG_BOARD_EARLY_INIT_R	1	/* Call board_early_init_r */
 #define CONFIG_MISC_INIT_R		1	/* Call misc_init_r	*/
 
 #define CONFIG_EXTRA_ENV_SETTINGS					\

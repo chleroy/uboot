@@ -112,6 +112,40 @@ int dram_init(void)
 	return 0;
 }
 
+/* -------------------------------------------------------------------------
+ * Specific board pre-initialization
+ */
+int board_early_init_r(void)
+{
+	volatile immap_t *immr = (volatile immap_t *)CONFIG_SYS_IMMR;
+	char *s;
+
+#if defined(CONFIG_WATCHDOG)
+	s = getenv("watchdog");
+	/* watchdog disabled */
+	if (strcmp(s, "off") == 0) {
+		printf("       Watchdog disabled\n");
+		immr->im_siu_conf.sc_sypcr = CONFIG_SYS_SYPCR & ~(SYPCR_SWE  | SYPCR_SWRI);
+
+	/* watchdog is enabled */
+	} else {
+		/* NMI mode */
+		if (strcmp(s, "nmi") == 0) {
+			printf("       Watchdog enabled nmi\n");
+			immr->im_siu_conf.sc_sypcr = (CONFIG_SYS_SYPCR & ~(SYPCR_SWRI)) | SYPCR_SWE;
+
+		/* normal mode by default */
+		} else {
+			printf("       Watchdog enabled\n");
+			immr->im_siu_conf.sc_sypcr = CONFIG_SYS_SYPCR | SYPCR_SWE  | SYPCR_SWRI;
+		}
+	}
+#else
+	immr->im_siu_conf.sc_sypcr = CONFIG_SYS_SYPCR & ~(SYPCR_SWE  | SYPCR_SWRI);
+#endif
+	return 0;
+}
+
 int misc_init_r(void)
 {
 	immap_t __iomem *immr = (immap_t __iomem *)CONFIG_SYS_IMMR;
