@@ -122,6 +122,11 @@ static inline void set_msr(unsigned long msr)
 void print_reginfo(void);
 #endif
 
+void cpu_init_f(immap_t __iomem *immr);
+int interrupt_init_cpu(unsigned *);
+void timer_interrupt_cpu(struct pt_regs *);
+unsigned long search_exception_table(unsigned long addr);
+
 #endif /* !__ASSEMBLY__ */
 
 #ifdef CONFIG_PPC
