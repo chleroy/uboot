@@ -154,6 +154,5 @@
 #define BOOTFLAG_WARM			0x02
 
 /* Misc Settings */
-#define CONFIG_CMD_REGINFO
 
 #endif /* __CONFIG_H */

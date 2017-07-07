@@ -723,7 +723,6 @@ extern unsigned long get_sdram_size(void);
 /*
  * Command line configuration.
  */
-#define CONFIG_CMD_REGINFO
 
 #undef CONFIG_WATCHDOG			/* watchdog disabled */
 

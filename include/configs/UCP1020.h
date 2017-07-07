@@ -420,7 +420,6 @@
 /*
  * Command line configuration.
  */
-#define CONFIG_CMD_REGINFO
 
 /*
  * USB

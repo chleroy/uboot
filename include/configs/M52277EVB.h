@@ -36,7 +36,6 @@
 #define CONFIG_BOOTP_HOSTNAME
 
 /* Command line configuration */
-#define CONFIG_CMD_REGINFO
 
 #define CONFIG_HOSTNAME			M52277EVB
 #define CONFIG_SYS_UBOOT_END		0x3FFFF
