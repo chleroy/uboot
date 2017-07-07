@@ -110,6 +110,10 @@ static inline void set_msr(unsigned long msr)
 	asm volatile ("mtmsr %0" : : "r" (msr));
 }
 
+#ifdef CONFIG_CMD_REGINFO
+void mpc8xxx_reginfo(void);
+#endif
+
 #endif /* !__ASSEMBLY__ */
 
 #ifdef CONFIG_PPC
