@@ -20,7 +20,6 @@
 #define CONFIG_CMD_PCI		/* pciinfo			*/
 #define CONFIG_CMD_PCMCIA	/* PCMCIA support		*/
 #define CONFIG_CMD_PORTIO	/* Port I/O			*/
-#define CONFIG_CMD_REGINFO	/* Register dump		*/
 #define CONFIG_CMD_REISER	/* Reiserfs support		*/
 #define CONFIG_CMD_READ		/* Read data from partition	*/
 #define CONFIG_CMD_SANDBOX	/* sb command to access sandbox features */
